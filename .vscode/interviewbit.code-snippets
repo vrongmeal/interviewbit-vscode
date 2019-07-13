@@ -1,0 +1,85 @@
+{
+	"setup": {
+		"prefix": "setup",
+		"description": "Basic setup for the environment",
+		"body": [
+			"#include <iostream>",
+			"#include <vector>",
+			"using namespace std;",
+			"",
+			"int main() {",
+			"\treturn 0;",
+			"}"
+		]
+	},
+
+	"input:simple": {
+		"prefix": "input:simple",
+		"description": "Input int, string and other simple datatypes",
+		"body": [
+			"${1:data_type} ${2:variable_name};",
+			"{ // Input simple",
+			"\tcin >> ${2:variable_name};",
+			"}"
+		]
+	},
+
+	"input:vector": {
+		"prefix": "input:vector",
+		"description": "Input vector in interviewbit format",
+		"body": [
+			"vector<${1:data_type}> ${2:variable_name};",
+			"{ // Input vector",
+			"\tint vector_size;",
+			"\tcin >> vector_size;",
+			"\twhile (vector_size--) {",
+			"\t\t${1:data_type} temp_var;",
+			"\t\tcin >> temp_var;",
+			"\t\t${2:variable_name}.push_back(temp_var);",
+			"\t}",
+			"}"
+		]
+	},
+
+	"output:simple": {
+		"prefix": "output:simple",
+		"description": "Output a simple variable",
+		"body": [
+			"{ // Output simple",
+			"\tcout << ${1:variable_name} << \"\\n\";",
+			"}"
+		]
+	},
+
+	"output:vector": {
+		"prefix": "output:vector",
+		"description": "Output a vector in a pretty format",
+		"body": [
+			"{ // Output vector",
+			"\tcout << \"[ \";",
+			"\tfor (int iter = 0; iter < ${1:variable_name}.size(); iter++) {",
+			"\t\tcout << ${1:variable_name}[iter];",
+			"\t\tif (iter != ${1:variable_name}.size() - 1)",
+			"\t\t\tcout << \", \";",
+			"\t}",
+			"\tcout << \" ]\\n\";",
+			"}"
+		]
+	},
+
+	"solution": {
+		"prefix": "solution",
+		"description": "The one like Solution::someFunction(with, some, parameters)",
+		"body": [
+			"class Solution {",
+			"public:",
+			"\t${1:return_type} ${2:function_name}(${3:parameters});",
+			"} sol;",
+			"",
+			"${1:return_type} Solution::${2:function_name}(${3:parameters}) {",
+			"\t${1:return_type} ans;",
+			"\treturn ans;",
+			"}"
+		]
+	}
+}
