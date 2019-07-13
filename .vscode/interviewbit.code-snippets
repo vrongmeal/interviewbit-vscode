@@ -41,6 +41,28 @@
 		]
 	},
 
+	"input:vector2d": {
+		"prefix": "input:vector2d",
+		"description": "Input 2D vector in interviewbit format",
+		"body": [
+			"vector<vector<${1:data_type}> > ${2:variable_name};",
+    		"{ // Input 2D vector",
+        	"\tint m, n;",
+        	"\tcin >> m >> n;",
+        	"\twhile (m--) {",
+            "\t\tvector<${1:data_type}> temp;",
+            "\t\tint s = n;",
+            "\t\twhile (s--) {",
+            "\t\t\t${1:data_type} t;",
+            "\t\t\tcin >> t;",
+            "\t\t\ttemp.push_back(t);",
+            "\t\t}",
+            "\t\t${2:variable_name}.push_back(temp);",
+        	"\t}",
+    		"}"
+		]
+	},
+
 	"output:simple": {
 		"prefix": "output:simple",
 		"description": "Output a simple variable",
@@ -63,6 +85,26 @@
 			"\t\t\tcout << \", \";",
 			"\t}",
 			"\tcout << \" ]\\n\";",
+			"}"
+		]
+	},
+
+	"output:vector2d": {
+		"prefix": "output:vector2d",
+		"description": "Output a 2D vector in pretty format",
+		"body": [
+			"{ // Output 2D vector",
+			"\tcout << \"[\\n\";",
+			"\tfor (int iter = 0; iter < ${1:variable_name}.size(); iter++) {",
+			"\t\tcout << \"\\t[ \";",
+			"\t\tfor (int jter = 0; jter < ${1:variable_name}[iter].size(); jter++) {",
+			"\t\t\tcout << ${1:variable_name}[iter][jter];",
+			"\t\t\tif (jter != ${1:variable_name}[iter].size() - 1)",
+			"\t\t\t\tcout << \", \";",
+			"\t\t}",
+			"\t\tcout << \" ]\\n\";",
+			"\t}",
+			"\tcout << \"]\\n\";",
 			"}"
 		]
 	},
